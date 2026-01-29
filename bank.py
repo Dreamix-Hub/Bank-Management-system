@@ -1,7 +1,6 @@
 import json
 import random
 
-
 class Bank:
     accounts = {}
     transactions = []
@@ -17,15 +16,14 @@ class Bank:
             json.dump(data,w_f, indent=4) 
             
     # create account
-    def create_account(self, name, account_type, initial_balance):
-        self.name = name
-        self.account_type = account_type
-        self.initial_balance = initial_balance
-        self.account_number = random.randint(1,100)
-        # creating an account
-        Bank.accounts.update({self.account_number: {"name": self.name, "account_type": self.account_type, "initial_balance":self.initial_balance}})    
+    @classmethod
+    def create_account(cls, name, account_type, balance):
+        account_number = random.randint(1,100)
+        # creating an account (use string keys for JSON consistency)
+        cls.accounts.update({str(account_number): {"name": name, "account_type": account_type, "balance": balance}})
         # writing back to the json file
-        self.write_data(Bank.accounts)
+        cls.write_data(cls.accounts)
+        return str(account_number)
                
     # delete an account
     def delete_account(self, account_number):
@@ -54,4 +52,5 @@ class Bank:
             for keys, value in details.items():
                 print(f"{keys.upper()}: {value}")
             print()
-    
+
+
