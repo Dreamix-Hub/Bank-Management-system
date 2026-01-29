@@ -1,0 +1,22 @@
+{
+    "123": {
+        "name": "alice",
+        "account_type": "current",
+        "initial_balance": 10
+    },
+    "456": {
+        "name": "bod",
+        "account_type": "saving",
+        "initial_balance": 100
+    },
+    "79": {
+        "name": "abdullah",
+        "account_type": "current",
+        "initial_balance": 1000
+    },
+    "35": {
+        "name": "abdullah",
+        "account_type": "current",
+        "initial_balance": 1000
+    }
+}
